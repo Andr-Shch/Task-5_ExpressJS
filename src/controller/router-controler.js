@@ -139,7 +139,7 @@ const addAuthor = (req, res) => {
 //Rename Author
  const renameAuthor = (req, res) => {
   const author = data.find(item => item.id === +req.params.id)
-  console.log(req.body);
+  data= [...data,{...author,name:req.body.name}]
   res.status(200).json({ success: true, data:{...author,name:req.body.name}})
  } 
 
