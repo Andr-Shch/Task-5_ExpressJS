@@ -114,7 +114,7 @@ next()
   const getAuthors = (req, res) => {
     res.status(200).json({ success: true, data: data })
   }
-  +
+  
 
 //get One Author with posts
 const getOneAuthor = (req, res) => {

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {mid } = require('../middleware/mid')
+
 
 const {getAuthors,
       removeAuthor,
@@ -8,11 +8,15 @@ const {getAuthors,
       getPosts,
       getOnePost,
       renameAuthor,
-      addAuthor} = require('../controller/router-controler')
+      addAuthor,
+      checkAuthorId,
+      checkNewAuthor} = require('../controller/router-controler')
 
-//router.param(mid)
 
-router.route('/').get(getAuthors).post(addAuthor)
+//router.use('/',checkNewAuthor)
+router.param('id',checkAuthorId)
+
+router.route('/').get(getAuthors).post(checkNewAuthor,addAuthor)
 
 router.route('/:id').get(getOneAuthor).delete(removeAuthor).put(renameAuthor)
 

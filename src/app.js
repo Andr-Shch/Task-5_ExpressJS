@@ -17,3 +17,5 @@ app.all('*', (req, res) => {
 app.listen(5000, ()=>{
     console.log(`Server runing at port 5000....`);
 })
+
+module.exports.app = app;
